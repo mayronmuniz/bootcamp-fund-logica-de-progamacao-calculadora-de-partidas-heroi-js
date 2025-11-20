@@ -1,0 +1,2 @@
+# bootcamp-fund-logica-de-progamacao-calculadora-de-partidas-heroi-js
+Este repositório foi criado com o objetivo de hospedar o desafio de projeto do Bootcamp Fundamentos de Lógica de Programação em Javascript da Dio. Nesse repositório você encontrará não apenas a entregar do desafio, mas uma verdadeira experiência imersiva de qualidade. Em vez de criar um simples index.js, construí uma experiência completa em rpg.
