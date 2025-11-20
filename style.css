@@ -1,0 +1,276 @@
+:root {
+    --pixel-border: 3px;
+    --font-size-base: 15px;
+    --color-bg: #1a1a1a;
+    --color-text: #e0e0e0; 
+    --color-primary: #ffeb00; 
+    --color-secondary: #00aaff; 
+    --color-card-bg: #2d2d2d;
+    --color-border: #666; 
+    --color-error: #ff4444;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    /* Padrão de Piso de Masmorra */
+    background-color: #111;
+    background-image: 
+        linear-gradient(45deg, #1a1a1a 25%, transparent 25%, transparent 75%, #1a1a1a 75%, #1a1a1a),
+        linear-gradient(45deg, #1a1a1a 25%, transparent 25%, transparent 75%, #1a1a1a 75%, #1a1a1a);
+    background-position: 0 0, 20px 20px;
+    background-size: 40px 40px;
+    
+    color: var(--color-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: none;
+    font-size: 0.75rem;
+    user-select: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Vinheta */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 30%, #000 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Scanlines */
+body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+.container {
+    background-color: var(--color-card-bg);
+    padding: 2rem;
+    border-radius: 0;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    max-width: 420px;
+    width: 100%;
+    border: var(--pixel-border) solid var(--color-border);
+    position: relative;
+    box-sizing: border-box;
+    outline: var(--pixel-border) solid #000;
+    outline-offset: -calc(var(--pixel-border) * 2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+.character-stage {
+    width: 82px;
+    height: 82px;
+    margin-bottom: 1rem;
+    position: relative;
+    image-rendering: pixelated;
+}
+
+.pixel-hero {
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    animation: float 2s ease-in-out infinite;
+    filter: drop-shadow(3px 3px 0px rgba(0,0,0,0.5));
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.attack-anim {
+    animation: attack 0.2s steps(2) 5;
+}
+@keyframes attack {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(10px) rotate(5deg); }
+    50% { transform: translateX(-5px) rotate(-5deg); }
+    75% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+.levelup-anim {
+    animation: jump 0.5s ease-out;
+}
+@keyframes jump {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.2); filter: brightness(1.5) drop-shadow(0 10px 5px rgba(255,235,0,0.5)); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+h1 {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    text-shadow: 2px 2px #000;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    text-shadow: 1px 1px #000;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0;
+    border: var(--pixel-border) solid var(--color-border);
+    background-color: #111;
+    color: white;
+    font-size: 1rem;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+    -webkit-font-smoothing: none;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px var(--color-secondary);
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+button {
+    flex: 1;
+    padding: 0.75rem;
+    border: var(--pixel-border) solid var(--color-border);
+    border-radius: 0;
+    font-weight: normal;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.2s;
+    font-family: 'Press Start 2P', cursive;
+    -webkit-font-smoothing: none;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    min-width: 120px;
+}
+
+button:active {
+    transform: translateY(4px);
+}
+
+.btn-calc {
+    background-color: var(--color-secondary);
+    color: white;
+    border-color: #0077b3; 
+    box-shadow: 0 4px 0 #0077b3;
+    text-shadow: 1px 1px #000;
+}
+.btn-calc:active { box-shadow: 0 0 0 #0077b3; }
+
+.btn-grind {
+    background-color: var(--color-primary);
+    color: #2a2a2a;
+    border-color: #b3a500;
+    box-shadow: 0 4px 0 #b3a500;
+}
+.btn-grind:active { box-shadow: 0 0 0 #b3a500; }
+
+#resultado {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 0;
+    background-color: #222;
+    text-align: center;
+    border: var(--pixel-border) solid var(--color-border);
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 1.5;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hero-badge {
+    margin-top: 10px;
+    padding: 5px 15px;
+    border-radius: 0;
+    background: var(--color-primary);
+    color: #2a2a2a;
+    font-weight: normal;
+    font-size: 0.8rem;
+    display: inline-block;
+    border: var(--pixel-border) solid #b09100;
+    box-shadow: 2px 2px #000;
+}
+
+.highlight {
+    color: var(--color-primary);
+    text-shadow: 1px 1px #000;
+}
+
+.mute-control {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.6rem;
+    color: #666;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.mute-control:hover {
+    color: #fff;
+}
+
+.credits {
+    margin-top: 2rem;
+    font-size: 0.6rem;
+    color: #666;
+    text-shadow: 1px 1px #000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    .container { padding: 1.5rem; width: 90%; }
+    h1 { font-size: 1rem; }
+    .btn-group { flex-direction: column; }
+}
