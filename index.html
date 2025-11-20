@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Partidas Rankeadas</title>
+    <!-- Fonte Pixelada -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- CONEXÃO COM O CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="mute-control" onclick="toggleMute()">[SOM: ON]</div>
+        
+        <h1>Calculadora de Partidas Rankeadas</h1>
+
+        <p class="challenge-desc">Insira a quantidade de <strong>vitórias</strong> e <strong>derrotas</strong> de um jogador. A calculadora retornará o saldo (vitórias - derrotas) e o nível de acordo com as regras do desafio.</p>
+
+        <!-- Personagem SVG 8-Bit -->
+        <div class="character-stage">
+            <svg class="pixel-hero" id="heroSvg" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+                <!-- Sombra do chão -->
+                <rect x="4" y="15" width="8" height="1" fill="rgba(0,0,0,0.2)"/>
+                
+                <!-- Capa (Vermelha Vibrante) -->
+                <rect x="3" y="6" width="2" height="7" fill="#dc2626"/>
+                <rect x="11" y="6" width="2" height="7" fill="#dc2626"/>
+                <rect x="5" y="6" width="6" height="8" fill="#991b1b"/> 
+
+                <!-- Pernas -->
+                <rect x="5" y="13" width="2" height="2" fill="#451a03"/>
+                <rect x="9" y="13" width="2" height="2" fill="#451a03"/>
+
+                <!-- Corpo/Armadura -->
+                <rect x="5" y="5" width="6" height="8" fill="#2563eb"/>
+                
+                <!-- Detalhe do Peitoral -->
+                <rect x="6" y="6" width="4" height="3" fill="#fbbf24"/>
+                <rect x="7" y="7" width="2" height="1" fill="#d97706"/> 
+
+                <!-- Braços -->
+                <rect x="4" y="5" width="1" height="3" fill="#60a5fa"/>
+                <rect x="11" y="5" width="1" height="3" fill="#60a5fa"/>
+                
+                <!-- Luvas -->
+                <rect x="4" y="8" width="1" height="1" fill="#fbbf24"/>
+                <rect x="11" y="8" width="1" height="1" fill="#fbbf24"/>
+                
+                <!-- CABEÇA -->
+                <rect x="5" y="2" width="6" height="1" fill="#1e3a8a"/>
+                <rect x="5" y="3" width="1" height="3" fill="#1e3a8a"/>
+                <rect x="10" y="3" width="1" height="3" fill="#1e3a8a"/>
+
+                <!-- Rosto -->
+                <rect x="6" y="3" width="4" height="3" fill="#ffdbac"/>
+
+                <!-- Olhos -->
+                <rect x="6" y="4" width="1" height="1" fill="#111827"/>
+                <rect x="8" y="4" width="1" height="1" fill="#111827"/>
+                
+                <!-- Boca/Nariz -->
+                <rect x="7" y="5" width="1" height="0.5" fill="#d9a066" transform="translate(0, 0.5)"/>
+
+                <!-- Espada -->
+                <rect x="12" y="4" width="1" height="4" fill="#e2e8f0"/>
+                <rect x="11" y="7" width="3" height="1" fill="#f59e0b"/>
+                <rect x="12" y="8" width="1" height="1" fill="#78350f"/>
+            </svg>
+        </div>
+        
+        <div class="form-group">
+            <label for="nomeHeroi">Nome do Jogador</label>
+            <input type="text" id="nomeHeroi" placeholder="Ex: Valente" autocomplete="off">
+        </div>
+
+        <div class="form-group">
+            <label for="vitorias">Vitórias</label>
+            <input type="number" id="vitorias" placeholder="Ex: 45" min="0">
+        </div>
+
+        <div class="form-group">
+            <label for="derrotas">Derrotas</label>
+            <input type="number" id="derrotas" placeholder="Ex: 12" min="0">
+        </div>
+
+        <div class="btn-group">
+            <button class="btn-calc" onclick="classificarPartidas()">Calcular Rank</button>
+            <button class="btn-grind" onclick="limparFormulario()">Limpar</button>
+        </div>
+
+        <div id="resultado">
+            Insira as vitórias e derrotas para calcular o saldo e nível.
+        </div>
+
+        <div class="credits">Feito por mayronmuniz.dev</div>
+    </div>
+
+    <!-- CONEXÃO COM O JAVASCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>
