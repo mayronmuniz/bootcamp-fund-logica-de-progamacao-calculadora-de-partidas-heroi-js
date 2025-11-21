@@ -43,6 +43,7 @@ Efeitos Sonoros: Feedback auditivo em 8-bits gerado via JavaScript (Web Audio AP
 Você pode acessar a aplicação rodando diretamente no seu navegador através do GitHub Pages:
 
 🔗 Clique aqui para acessar o Projeto Online
+[https://mayronmuniz.github.io/bootcamp-fund-logica-de-progamacao-calculadora-de-partidas-heroi-js/]
 
 💻 Rodando Localmente
 
